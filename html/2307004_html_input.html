@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div> 사용자에게 값을 입력받을 떄 사용</div>
+
+    <h2>text type</h2>
+    <input type="text" name="name" placeholder="typing your name" />
+    <!-- placeholder : 사용자가 무슨 값으 입력해야하는지 안내할 때 사용한다.! -->
+    <!-- namce : back에 정보를 전송할 때 , name 속성을 사용함 -->
+    <input type="text" name="phone" value="010-xxxx-xxxx" />
+
+    <input type="button" value="submit"/>
+
+    <h2>button type</h2>
+    <button type="button">submit</button>
+
+    
+    <h2>password type</h2>
+    <input type="password" name="password" />
+
+    <h2>check box type</h2>
+    5
+
+    <h2>radio type</h2>
+    <input type="radio" name="gender" value="male" /> male
+    <input type="radio" name="gender" value="female" /> female
+
+    <h2>radio type2</h2>
+    <input type="radio" name="favorite" value="baseball" /> baseball
+    <input type="radio" name="favorite" value="soccer" /> soccer
+
+    <!-- 체크박스, 라디오가 아닌 jumping를 눌러도 선택이 되게 하는 방법 ! id와 for를 동일하게 설정! -->
+    <input type="radio" name="favorite" value="jumping" id="jumping"/> 
+    <label for="jumping">jumping</label>
+
+    <h2>date type</h2>
+    <input type="date" name="brith" />
+    <input type="datetime-local" name="brith" />
+
+    <h2>select tag</h2>
+    <select name="select-name">
+
+        <optgroup label="option1~2">
+            <option value="option1">option1</option>
+            <option value="option2" selected>option2</option>
+        </optgroup>
+
+        <optgroup label="option3~4">
+            <option value="option3" disabled>option3</option>
+            <option value="option4" selected>option4</option>
+        </optgroup>
+
+        <option value="option1">option1</option>
+        <option value="option2" selected>option2</option>
+        <option value="option3">option3</option>
+    </select>
+
+    <div>
+        <input type="text" name="email" value="sssss@naver.com" readonly/>
+
+    </div>
+
+    <hr>
+    <h2>설문조사</h2>
+
+        이름<input type="text" name="name" >
+        <br />
+        이메일<input type="text" name="email" placeholder="love@example.com">
+        <br />
+
+    <h3>나이</h3>
+        <input type="radio" name="age" value="10">10대
+        <input type="radio" name="age" value="20">20대
+        <input type="radio" name="age" value="30">30대
+        <input type="radio" name="age" value="40">40대
+        <input type="radio" name="age" value="50">50대
+        <input type="radio" name="age" value="50">60대
+    <h3>원하는 강의 (복수응답가능합니다.)</h3>
+        <input type="checkbox" name="html" value="html" /> html
+        <input type="checkbox" name="css" value="css" /> csss
+        <input type="checkbox" name="javascript" value="javascript" /> javascript
+        <br />
+    <textarea type="text" name="contents" rows="5" cols="50" placeholder="하고 싶은 말을 써주세요.!"></textarea>
+    <button type="button">제출</button>
+
+
+</body>
+</html>
