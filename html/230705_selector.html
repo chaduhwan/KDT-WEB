@@ -6,27 +6,48 @@
     <title>selector</title>
 </head>
 <style>
-    *{color: white; background-color: gray;}
+    /* *{color: white; background-color: gray;}
     span{background-color: red;}
     #frist{background-color: blue;}
-    .second{background-color: green;}
+    .second{background-color: green;} */
+/* 
+    span.orange{ color: aliceblue;}
+    .orange.apple{ color: greenyellow;}
 
+    div > p { color: tomato;}
+    div > ul > .orange{ color : orange}
+
+    div .orange {background-color: orange;}
+    li.orange{background-color: goldenrod;}
+
+    ul + div {background-color: blueviolet;}
+
+    .apple ~ li{font-weight: 900;} */
+    p.lion{background-color: red;}
+    #tiger{background-color: yellow;}
+    .lion{color: sienna;}
+    li.lion{font-weight: 800;}
+    #tiger + li {background-color: skyblue;}
+    .lion ~ li {background-color: orange;}
+    ul > .lion {background-color: greenyellow;}
 </style>
 <body>
-  <h1>기본 선택자 연습해보기</h1>
-  <p>기본선택자 연습해보아요!</p>
-  <span>안녕하세요</span>
-  <ol>
-    <li id="frist">1</li>
-    <li class="second">2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-
-
-  </ol>
-
-
-
+  <h1>복합선택자 사용 연습</h1>
+  <p>동물원에 왔어요</p>
+  <div class="zoo">
+    <ul>
+        <span> 여긴 사파리!</span>
+        <li>곰</li>
+        <li id="tiger">호랑이</li>
+        <li>팬더</li>
+        <li class="lion">사자1</li>
+        <li class="lion">사자2</li>
+        <li>사육사 lily</li>
+        <li>사육사 sean</li>
+    </ul>
+    <span class="lion">사파리 밖의 사자</span>
+  </div>
+  <hr/>
+  <p class="lion">야생의 사자</p>
 </body>
 </html>
