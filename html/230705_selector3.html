@@ -5,14 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .stripes *:nth-child(2n+1){background-color: navy; color: white;}
+        /* .stripes *:nth-child(2n+1){background-color: navy; color: white;}
         .stripes *:nth-child(2n){background-color: yellow; color: black;}
 
+        .box::before{ content: "택시";}
 
-        
+        .box::after{ content: "빨리";}
+
+        div > .aaa[속성이름 = 속성값] {color: aqua;}
+        [속성이름] {color: aquamarine;}
+        [type=text] {background-color: green;}
+        [disabled] {background-color: antiquewhite;}
+        [value] {color: wheat;}
+        *:not([value]) {color: blue;} */
+
+        [disabled] {background-color: red; }
+        [placeholder="이름"]{background-color: orange;}
+        input:not([placeholder]){background-color: blue;}
+
+        /* 스타일의 변수화 : ex) 서비스의 메인컬러가 주황색에서 초록색으로 변화한다면? */
+        div{color: orange;
+        }
+        div{background-color: orange;
+        }
+        /* 이렇게 오렌지색을 많이썻는데 하나하나 바꿔야하는가? no 속성값 변수화를 통해 바꾼다 ! */
+        /* 변수 : 특정값을 저장하는 공간 */
+        :root {
+          --main-color : blue; 
+          --main-bg-color : skyblue;
+          --main-font-size : 20px;}
+        p{
+            color : var(--main-color);
+            background-color: var(--main-bg-color);
+            font-size: var(--main-font-size);}
+
+
     </style>
 </head>
-<body>
+<body >
+    <input type="text" placeholder="이름"/>
+    <input type="password" value="pw"/>
+    <input type="text" value="000=0000=0000"/>
+    <input type="text" placeholder="핸드폰"/>
+    <input type="text" placeholder="주민번호" disabled/>
+
+
+    <div>hello</div>
+    <p>hello</p>
+
+
+
+
+
+
+
+
+
+    <!-- <div class="box">여기요!!</div> -->
+
+
+
+
+<!-- 
     <div class="stripes">
         <div>navy</div>
         <div>yellow</div>
@@ -24,7 +78,7 @@
         <div>yellow</div>
         <div>navy</div>
         <div>yellow</div>
-    </div>
+    </div> -->
 
 </body>
 </html>
