@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>margin,padding</title>
+
+    <style>
+        .block{
+            background-color: red;
+            color: white;
+            font-size: 2px;
+            width: 200px;
+            height: 200px;
+
+            /* margin-top: 100px;
+            margin-right: 20x;
+            margin-bottom: 50px;
+            margin-left: 100px;
+
+            margin: 100px 20px 50px 100px; */
+            /* 위에서부터 시계방향 */
+
+            margin: 100px 20px;
+            /* 위아래, 좌우 */
+            margin: 100px;
+            /* 모든방향  padding도 동일*/
+
+                /* padding-top: 100px;
+                padding-left: 100px; */
+        }   
+        .inline{
+            background-color: blue;
+            color: white;
+            margin: 100px;
+            /* width: 200px; */
+            padding: 10px;
+        }
+
+        .mm-width{
+            background-color: green;
+            color: white;
+            font-size: 30px;
+            line-height: 1500px;
+            width: calc(100vw-50px); 
+            height: 100px;
+            max-width: 1000px;
+            min-width: 300px;
+            margin: auto;
+            /* padding: auto; 이런기능은 없다 ㅜ */
+        }
+        body{background-color: blanchedalmond;
+             
+        }
+        .realsq{
+            width: 10vw;
+            height: 10vw;
+            background-color: blue;
+            margin: 50vw;
+            display: inline-block;
+            text-align: center;
+            line-height: 10vw;
+            }
+    </style>
+</head>
+<body>
+    <!-- margin은 외부 여백 -->
+    <!-- padding은 내부 여백 -->
+
+    <!-- <div class="block">hello</div>
+    <div class="mm-width">hello</div> -->
+        <div class="realsq">KDT</div>
+
+</body>
+</html>
