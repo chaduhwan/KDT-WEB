@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .flex-box{
+        background-color: aqua;
+        height: 500px;
+        display: flex;
+        /* display: flex는 하위요소들을 inline-block으로 변환 */
+        justify-content: center;
+        /* text-align과 동일하게 중앙으로 배치 */
+        align-items: center;
+        /* 세로를 기준으로 중앙으로 배치 */
+        /* 위 두개는 flex를 사용했을 때 사용가능 */
+        flex-direction: column;
+        /* flex 방향의 기본값은 row 가로이다. column 일시 세로  */
+    }
+
+    .child-box{
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        margin: 10px;
+    }
+
+
+
+</style>
+<body>
+    
+    <div class="flex-box">
+        <div class="child-box">
+
+        </div>
+        <div class="child-box">
+
+        </div>
+        <div class="child-box">
+
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
