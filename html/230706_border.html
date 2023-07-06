@@ -42,6 +42,27 @@
             border-radius: 5% 10% 15% 20%;
         }
 
+        .box3{
+            width: 100px; height: 100px; padding: 20px; border: 15px 
+            solid red; background-color: orange;
+        }
+
+        .border-box{
+            box-sizing: border-box;
+            opacity: 0.15;
+        }
+
+        .content-box{
+            box-sizing: content-box;
+        }
+        /* content box는 border와 padding의 영향 */
+
+        .content-box:hover{
+            /* opacity: 0; */
+            /* visibility: hidden; */
+            display: none;
+        }
+
 
     </style>
 
@@ -49,11 +70,15 @@
 <body>
 
     <div class="box box1"></div> <br/> <br/>
-    <div class="box box2"></div>
+    <div class="box box2"></div> <br/> <br/> <br/> <br/>
 
 
 
+    <div class="box3 border-box">hello</div>
 
+    <br/> <br/>
+
+    <div class="box3 content-box">hello</div>
 
 
 
