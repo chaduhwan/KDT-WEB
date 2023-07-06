@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>border</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 100px;
+            background-color: aqua;
+
+        }
+        .border-1{
+       
+            border-color: blue red green yellow;
+            border-style: dashed;
+            border-width: 10px 5px;
+
+        }
+        .border-2{
+            border: 5px solid black;
+            /* width style color 순으로 적기 */
+            border-left: 10px dashed red;
+            border-right-color: greenyellow;
+            border-right-style: solid;
+            border-right-width: 10px;
+
+        }
+
+        .box1{
+            border-color: blue red green yellow;
+            border-style: dashed solid double dotted;
+            border-width: 10px 15px 20px 25px;
+
+        }
+        .box2{
+            border-right-style: dashed;
+            border-left-style: solid;
+            border-top-style: dotted;
+            border-bottom-style: double;
+
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+
+
+
+
+
+
+
+    
+</body>
+</html>
