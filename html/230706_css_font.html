@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css font</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Diphylleia&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+        font-family: 'ARCHISCULPTURE_v200';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2303@1.0/ARCHISCULPTURE_v200.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+        }  
+        
+
+        :root {
+            font-size: 16px;
+
+        }
+
+        main {
+            font-size: 20px;
+        }
+
+        div {
+            font-weight: 100;
+        }
+
+        .font-px{
+            font-size: 20px;
+            font-family: 'Bagel Fat One', cursive;       
+        }
+
+        .font-em{
+            font-size: 1.5em;
+            line-height: 2;
+            font-weight: 700;
+            font-family: 'Bagel Fat One', cursive;       
+
+        }
+        /* 상위요소 main의 배수를 의미한다 1.5배 ! 201.5=30px를 나타냄*/
+        .font-rem   {
+            font-size: 1.5rem;
+            line-height: 2;
+            font-family: 'ARCHISCULPTURE_v200';
+
+        }
+        /* em은 가장 가까운 부모요소의 폰트 사이즈를 기준, rem은 가장 상위 요소의 폰트사이즈를 기준 */
+        .font-per{
+            font-size: 100%;
+            font-family: 'ARCHISCULPTURE_v200';
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="font-px">hello</div>
+        <div class="font-em">hello</div>
+        <div class="font-rem">hello</div>
+        <div class="font-per">hello</div>
+    </main>
+
+
+    
+</body>
+</html>
