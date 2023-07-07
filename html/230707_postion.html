@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>postion</title>
+    <style>
+        body{
+            margin: 0;
+        }
+
+        /* div{
+            width: 100px;
+            height: 100px;
+            /* margin-top: 10px; */
+        
+
+        .relative{
+            position: relative;
+        }
+
+        .r-1{
+            background-color: red;
+            left: 50px;
+            top: 50px;
+            /* bottom: ;
+            right: ; */
+        }
+
+        .r-2{
+            background-color: blue;
+            bottom: -50px;
+
+
+        }
+        .r-3{
+            background-color: yellow;
+            right: -10px;
+        }
+        .parents{
+                position: relative;
+                width: auto;
+                height: 200px;
+        }
+
+        .absolute{
+            position: absolute;
+            background-color: orange;
+            /* left: 10px;
+            top: 30px; */
+            right: 10%;
+            bottom: 0;
+        }
+        /* absolute는 상위요소에서 relative를 가지고 있을때 사용가능 ! */
+        /* absolute는 상위요소를 기준으로! right : 상위요소의 영역의 right과 하위요소의 right이 0이됨 기준으로 움직임! */
+
+        .absolute.a-1{
+            /* left: 10px;
+            top: 30px; */
+            right: 5%;
+            bottom: 0;
+            background-color: green;
+        }
+        /* 나중에 나온 태그가 앞으로 쌓임 */
+        .fixed{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: skyblue;
+        }
+        .con{
+            width: 500px;
+            height: 500px;
+            background-color: red;
+            position: relative;
+        }
+        .a{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        .item1{
+            position: relative;
+            left: 50px;
+            top: 30px;
+        }
+        .item2{
+            position: absolute;
+            right: 30px;
+            bottom: 100px;
+        }
+        .item3{
+            position: fixed;
+            right: 100px;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <!-- <div class="relative r-1"></div>
+    <div class="relative r-2"></div>
+    <div class="relative r-3"></div>
+
+    <div class="parents">
+        <div class="absolute"></div>
+        <div class="absolute a-1"></div>
+    </div>
+
+
+    <div class="fixed"></div> -->
+
+    <div class="con">
+     <div class="item1 a"></div>
+     <div class="item2 a"></div>
+     <div class="item3 a"></div>
+    </div>
+    
+</body>
+</html>
