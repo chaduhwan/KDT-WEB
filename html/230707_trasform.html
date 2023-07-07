@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .con{
+            display: flex;
+            width: 800px;
+            height: 800px;
+            position: relative;
+            justify-content: space-around;
+        }
+        img{
+            width: 200px; 
+            height: 200px;
+            position: absolute;
+            transform:skewY(45deg);
+            transition-property: transform;
+            transition-duration: 20s;
+            transition-timing-function: linear;
+
+           
+        }
+        img#translate:active{
+            transform: translate(10000px,40px);
+        }
+        img#scale:active{
+            transform: scaleX(2);
+          
+        }
+        img#rotate:active{
+            transform:rotateX(180deg);
+            backface-visibility: hidden;
+ 
+        }
+
+        img#skew:active{
+            transform:skew(30deg);         
+        }
+        #translate{
+            left: 100px;
+            z-index: 4;
+            
+        }
+        #scale{
+            left: 300px;
+            z-index: 3;
+        }
+        #rotate{
+            left: 500px;
+            z-index: 2;
+        }
+        #skew{
+            left: 700px;
+            z-index: 1;;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            margin-left: 0;
+            background-color: red;
+            transition: margin 2s;
+        }
+        .box:hover{
+            margin: 100px;
+            width: 200px;
+            height: 200px;
+        }
+        .boxa{
+            width: 100px;
+            height: 100px;
+            transition-property: all;
+            transition-delay: 0.5s;
+            transition-duration: 1s;
+            background-color: black;
+            color: white;
+        }
+        .boxa:hover{
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- <div>
+    <div>
+        <img id="translate"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"/>
+    </div>
+
+    <div>
+        <img id="scale"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"/>
+    </div>
+
+    <div>
+        <img id="rotate"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"/>
+    </div>
+
+    <div>
+        <img id="skew"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"/>
+    </div>
+    </div> -->
+
+    <div class="boxa">hellohellohellohellohellohellohellohellohellohello</div>
+
+    <div>
+
+    </div>
+
+
+
+
+
+
+
+
+</body>
+</html>
