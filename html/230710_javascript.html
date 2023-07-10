@@ -4,8 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../html/js/index.js"></script>
+    <!-- <script src="../html/js/index.js"></script> -->
     <script>
+        
+        let animals = ["dog","cat","lion"]
+
+        let cat = { 
+            age : 1, 
+            name : "노르망디", 
+            mew : function() {
+                console.log("냐옹");
+            }
+        }
+        console.log (cat);
+        console.log(cat.age);
+        cat.mew();
+
+        let dog ={
+            name : "lupy"
+            
+        }
+        console.log(dog.name);
+
+        let me = {
+            name : "duhwan",
+            age : 25,
+            mbti : "infj"
+        }
+        console.log(me)
+
+        console.log(typeof cat.name);
+        console.log(typeof cat.age);
+        console.log(typeof cat.mew);
+        console.log(typeof dog.age); // undefined -> undefined 자료형
+        console.log(typeof null); //null -> object 자료형
+
+        console.log(String(null))
+        let num5 = 5;
+        console.log(num5.toString())
+
+        let score1 = prompt("첫번째 성적을 입력하세요.")
+        let score2 = prompt("두번째 성적을 입력하세요.")
+
+        console.log(score1,score2);
+
+        let avg = (Number(score1) + Number(score2)) / 2; // 자동 형변환으로 인해 값이 원하는 대로 계산되지 않음.! -> number사용하여 숫자형으로 변환
+        // number(값), string(값)
+        console.log(avg); 
+
+        console.log(`${typeof 5} isn't ${typeof "aaa"} data type. 
+        typeof를 boolean이나 null에 사용하면 ${typeof null} 결과를 얻을 수 있습니다.`)
+
+        let mathScore = "77";
+        let engScore =  "88";
+        let avgScore = (Number(mathScore) + Number(engScore)) /2 
+        console.log(avgScore)
+
+
+
+
+
+
+
+
     </script>
 </head>
 <body>
