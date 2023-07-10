@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let num = 1;
+        num = 5;
+        let numstring = "5";
+
+        console.log(num >= 1)
+        console.log(num <= 1)
+        // == , != , < , <= , > , >=
+        // ===, !==
+        console.log(num == numstring) // 약한 비교 : 타입이 다르지만 자동으로 변환해서 비교
+        console.log(num === numstring) // 강한 비교 : 타입까지 비교
+        console.log(num !== numstring)
+
+        console.log(num + 5);
+        console.log(num - 5);
+        console.log(num * 5);
+        console.log(num / 5);
+
+        console.log((num % 5)== 0); // num / 2 를 했을 때 나머지를 출력
+
+        console.log (num ** 3) // Num의 3승을 출력
+
+        // num = num + 5; 
+        num += 5; // 위와 동일
+
+        // num = num * 5;
+        num *= 5;
+        console.log(num)
+
+        // num = num + 1;
+        // num +=1;
+        // num ++;
+        // ++num;
+        console.log(++num)
+        console.log(num)
+
+        // num = num - 1 ;
+        // num-=1;
+        num --;
+        console.log(num)
+
+
+        //논리연산자 
+         // == , != , < , <= , > , >=
+        // ===, !==
+        console.log(true && false)
+        console.log(num ==50  && num >= 50)
+        // && : and 연산자 -> 앞과 뒤가 모두 참일 떄, true를 반환, 둘 중 하나라도 거짓일 경우 false를 반환
+
+
+        console.log(true || false)
+        console.log(num > 50 || num <= 20)
+
+        // || : or 연산자 -> 앞과 두 중 하나라도 참일 경우, true를 반환, 둘 다 모두 거짓일 떼 false룰 번환
+
+        console.log(!true)
+        console.log(!(num > 50))
+        // true는 false로, false는 true로 
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
