@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        for (let i=0; i<10; i=i+2) {
+            console.log("hello?")
+        }
+
+        let fruits = ["apple","banana","orage","grape","blueberry"]
+        for (let i=0; i<fruits.length; i=i+1) {
+            console.log(fruits[i])
+        }
+
+        // 1~5까지의 합
+        let number =5;
+        let sum = 0;
+        for(let i=1; i<=5 ; i++){
+            sum += i;
+            // sum = sum + i
+        }
+        console.log(sum)
+
+        // for(let i=1; i<=5 ; i--){
+        //     console.log(i)
+        // } --> 잘못된 코드 !
+        
+        for (let i=5; i> 0; i--) {
+            console.log(i)
+        }
+
+        for(let i=1; i<=5 ; i++) {
+            for(let j=0; j<5; j++){
+                console.log(i,j)
+            }
+        }
+        
+        for(let i=1; i<=10000; i++){
+            if(i%2==1 && i%13==0) {
+                console.log(i)
+            }
+        }
+        
+        let test = Number(prompt("숫자를 쓰세요"))
+        for(let i=1; i<=test; i++){
+            if(i%2==1 && i%13==0) {
+                console.log(i)
+            }
+        }
+
+        for(let i=1; i<=9 ; i ++){
+            for(let j=1; j<=9; j++){
+                console.log(i*j)
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>
