@@ -14,6 +14,9 @@
 
         let fruits = ["apple","banana","orage","grape","blueberry"]
         for (let i=0; i<fruits.length; i=i+1) {
+            if(fruits[i]=="bananan"){
+                continue;
+            }
             console.log(fruits[i])
         }
 
@@ -55,9 +58,60 @@
 
         for(let i=1; i<=9 ; i ++){
             for(let j=1; j<=9; j++){
-                console.log(i*j)
+                console.log(`${i}x${j}= ${i*j}`)
             }
         }
+
+
+        let index = 0; // for문과 다르게 밖에서 정의해야함
+        while(index<fruits.length) {
+            index++
+            if(fruits[index]=="bananan"){
+                continue;
+            }
+            console.log(fruits[index])
+            index++
+        }
+        //while(조건){}
+
+
+        // 사용자가 숫자를 입력하길 기대하면서, 1~숫자까지의 합을 구하는 코드를 작성가정
+        let num = Number(prompt("숫자를 입력하새요"))
+        while(isNaN(num)){
+            num = Number(prompt("숫자를 입력하새요"))
+        }
+        console.log(num)
+        // console.log(isNaN()) 숫자가 아니면 true값 반환
+        
+        //while문은 보통 반복될 횟수가 지정되어 있지 않거나 할 수 없을 뗴 ! 
+        let number1 = 5 ;
+        while(true){//횟수를 몰르기에 일부러 무한반복
+            number1 = Number(prompt("10이상의 숫자를 입력하세요"))
+            if(number1 >=10) {
+                break;
+            }
+        }
+        let i = 2;
+        while(i<10){
+            let j =1;
+            while(j<10){
+                console.log(`${i}x${j}=${i*j}`)
+                j++
+            }
+            i++
+        }
+        let n = 0;
+        let sum1 = 0;
+        while(n<100){
+            if(n%2==0||n%3==0){
+                sum1+=n
+            }
+            n++
+        }
+        console.log(sum1)
+
+
+
 
 
 
