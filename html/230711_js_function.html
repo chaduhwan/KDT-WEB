@@ -85,6 +85,51 @@
     </script>
 </head>
 <body>
-    
+    <script>
+        function hello() {
+            alert("hello");
+        }
+
+
+        let numberone = Number(prompt("숫자를 입력하세요"))
+        let numbertwo = Number(prompt("숫자를 입력하세요"))
+
+
+        function add(a, b) {
+            alert ( a+ b);
+           
+        }
+        function sub(a, b) {
+            alert ( a - b);
+           
+        }
+        function divide(a, b) {
+            alert ( a/ b);
+           
+        }
+        function mul(a, b) {
+            alert ( a*b);
+           
+        }
+
+
+
+
+
+    </script>
+
+
+
+
+
+    <button onclick="hello()">hello</button>
+    <div style="border: 1px solid black; cursor: pointer;" 
+         onclick="hello()">hello</div>
+
+    <button onclick="add(numberone,numbertwo)">더하기</button>
+    <button onclick="sub(numberone,numbertwo)">빼기</button>
+    <button onclick="mul(numberone,numbertwo)">곱하기</button>
+    <button onclick="divide(numberone,numbertwo)">니누기</button>
+
 </body>
 </html>
