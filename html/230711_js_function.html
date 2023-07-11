@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 함수선언문
+        function sayHello(){
+            console.log("Hello");
+
+        }
+        // 함수를 만든다고 해서 함수의 내용이 실행되는 건 아니다 ! 
+        // 호출을 해야 실행됨.
+        // 함수 선언문의 경우 어디서든 호출 가능.! 표현식은 식이 만들어진 후에 호출 가능! -> 호이스팅
+        sayHello();
+
+        //함수 표현식
+        let sayHello2 = function() { // 익명함수
+                console.log("Hello");
+        }
+        sayHello2();
+
+        let sayHello3=() => { // 익명함수
+                console.log("Hello");
+        }
+        sayHello3()
+
+        // 매개변수가 없고, 변환값도 없음. 
+        // 매개변수란 ? 함수 외부에사 사용한 변수 , 값 등을 함수 내부로 전달하고 싶을 때 사용
+        // 반환값이란 ? 함수 내부에서 생성된 변수 , 값 등을 함수 외부로 전달하고 싶을 때 사용
+        
+        // 1. 매개변수가 없고 반환값도 없음.
+        function aaa() {
+            console.log("Hello");
+        }
+        aaa()
+
+        // 2. 매개변수가 없고 반환값이 있음.
+        function bbb() {
+            return "bbb"
+        }
+        bbb() //=> " bbb"
+        console.log(bbb()) // 반환값을 나타낼려면?? 
+        let str = bbb();
+
+        // 3. 매개변수가 있고 반환값은 없음.
+        let number1 = 5 ;
+        let number2 = 3 ;
+        function ccc(num1, num2) {
+            console.log(num1 + num2)
+        }
+        ccc(number1, number2);
+
+        // 4. 매개변수도 있고 반환값도 있음.
+        function ddd (num1) {
+            return num1 + 5
+        };
+        let num = ddd(10)
+        console.log(ddd(num))
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
