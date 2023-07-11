@@ -111,7 +111,25 @@
         console.log(sum1)
 
 
+        let j = 10;
+        do{ //한번은 실행시킴 ! but 잘 안쓰인다.!
+            console.log(j)
+            //반복할코드 
+            j++;
+        }
+        while(j<10);
 
+        let fruits1 = ["apple","banana","orage","grape","blueberry"]
+        for (let i=0; i<fruits1.length; i=i+1) {
+            if(fruits1[i]=="bananan"){
+                continue;
+            }
+            console.log(fruits1[i])
+        }
+        // for (변수선언 of 배열){} 배열 하나하나에 대해서 접근할 때
+        for (let f of fruits1) {
+            console.log(f)
+        }
 
 
 
