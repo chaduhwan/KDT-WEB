@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      let str = `Happy day~!`;
+      console.log(str.length)
+
+      str.toUpperCase() // 대문자로 전환해주지만 값을 저장하는 건 아니다 ! 
+      console.log(str.toUpperCase());
+      console.log(str.toLowerCase());
+
+      "python", "Python", "PYTHON" // 서로 다른 대문자,소문자를 지닌 문자들을 비교할때 사용!
+
+      console.log(str.indexOf(`e`));
+
+      console.log(str.slice(2,5)); //시작인덱스 ~ 끝인덱스 밖의 문자를 자름
+
+      console.log(str.replace(`p`,`a`));// 첫번째로 찾은 p를 a로 변환
+
+      console.log(str.replaceAll(`p`,`a`));
+    
+      console.log(str.repeat(2));
+
+      console.log(str.trim())
+
+      '2023-07-12'
+      console.log(str.split("a"))
+
+      //method chaining !! 
+      let hello = "Hello~"
+      let helloReverse = hello.split("").reverse().join("")
+      //["H","e","l","l","o","~"]
+      //["~","o","l","l","e","H"]
+      //~olleh
+      console.log(helloReverse);
+    
+      console.log(hello.split("").reverse().join("/"))
+
+
+
+
+
+
+    </script>
+</body>
+</html>
