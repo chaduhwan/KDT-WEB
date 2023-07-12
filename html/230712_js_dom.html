@@ -21,23 +21,69 @@
         .green {
             background-color: green;
         }
+        .backbox {
+            display: flex;
+            flex-direction: column;
+        }
+        .table {
+            border: 3px;
+        }
+        
+        .frame {
+            width: 20%;
+            height: 30%;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-    <div id="red" class="box red">
-    </div>
+    <div id="red" class="box red"></div>
 
     <div id="orange" class="box orange"></div>
 
     <div class="box yellow"></div>
     </div>
 
-    <button type="button" onclick="createGreenBox">생겨라!</button>
-    <!-- <input type="text" name="id"> -->
+    <button type="button" onclick="createGreenBox()">생겨라!</button>
+    <button type="button" onclick="removeBox()">사라져라!</button>
 
+    <!-- <input type="text" name="id"> -->
+<!-- 
     <button type="button" onclick="redToggle">깜빡깜빡</button>
-    <button type="button" onclick="orangeToggle">깜빡깜빡</button>
+    <button type="button" onclick="orangeToggle">깜빡깜빡</button> -->
+    <div class="backbox">
+        값1<input type="text" id="value1" class="frame"/>
+        값2<input type="text" id="value2" class="frame"/>
+        연산자<input type="text" id="operator" class="frame"/>
+        결과<input type="text" id="result" class="frame"/>
+        
+        <button type="button" onclick="operator1()" class="frame">계산하기</button>
+        <button type="button" onclick="eraser()" class="frame">초기화</button>
+    </div>
+
+    <div class="backbox">
+        작성자 : <input type="text" id="name" class="frame"/>
+        내용<input type="text" id="write" class="frame"/>
+        <button type="button" onclick="check()" class="frame ">작성</button>
+        
+        <table id="table" class="frame">
+            <tr>
+                <td>번호</td>
+                <td>작성자</td>
+                <td>내용</td>
+                <td>작성일</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
 
     <script>
         // let redBoxByID = document.getElementById("red")
@@ -95,34 +141,118 @@
         //     redBox.classList.toggle("orange")
         // }
 
-        let redBox = document.getElementById("red")
+        // let redBox = document.getElementById("red")
         
-        let container = document.querySelector(".container")
-        console.log(container)
+        // // let container = document.querySelector(".container")
+        // console.log(container)
         
-        console.log(container.children[container.children.length-1]); // 2번 인덱스에 접근 ! 
+        // console.log(container.children[container.children.length-1]); // 2번 인덱스에 접근 ! 
 
-        console.log(redBox.parentNode);
+        // console.log(redBox.parentNode);
 
-        console.log(redBox.nextElementSibling)
+        // console.log(redBox.nextElementSibling)
 
-        let orangeBox = document.getElementById("orange")
-        console.log(orangeBox.previousElementSibling)
+        // console.log(orangeBox.previousElementSibling)
 
-        let creatBox = document.createElement(`div`)
-        
+        let container =document.querySelector(".container");
+
         function createGreenBox(){
-            let creatBox = document.createElement(`div`)
-            createBox.className = "box green"
-
+            let createBox = document.createElement("div")
+            createBox.className = "box green";
             //요소.append{}
-            container.append(creatBox) // 부모 안에 마지막 자식으로 추가
-            container.appendChild(creatBox)
-            container.append("hello")
+            container.append(createBox) // 부모 안에 마지막 자식으로 추가
+            // container.appendChild(creatBox) // appendChild는 매개변수로 노드객체만 받을 수 있다 .
+            // container.append("hello") // append 는 매개변수로 문자열과 노드 객체 모두 받을 수 있음 .
+        }
+        function createGreenBox(){
+            let createBox = document.createElement("div")
+            createBox.className = "box green";
+            //요소.append{}
+            // container.append(createBox) // 부모 안에 마지막 자식으로 추가
+            container.prepend(createBox) // 부모 안에 첫번째 자식으로 추가
+
+            // container.appendChild(creatBox) // appendChild는 매개변수로 노드객체만 받을 수 있다 .
+            // container.append("hello") // append 는 매개변수로 문자열과 노드 객체 모두 받을 수 있음 .
+
+            orangeBox.before(createBox) // 이전형제로 추가 
+            after() // 다음형제로 추가
         }
 
+        function removeBox(){
+            let orangeBox = document.getElementById("orange");
+            // orangeBox.remove();
+            container.removeChild(orangeBox)
+        }
 
+        function operator1(){
+            let a = Number(document.getElementById("value1").value)
+            let b = Number(document.getElementById("value2").value)
+            let c = document.getElementById("operator").value;
+            let result = 0
+            if(c=="+"){
+                result = a + b
+                document.getElementById("result").value = result
+            } else if (c=="-") {
+                result = a - b
+                document.getElementById("result").value = result
+            } else if (c=="/") {
+                result = a / b
+                document.getElementById("result").value = result
+            } else if (c=="*") {
+                result = a * b
+                document.getElementById("result").value = result
+            }
+        }
 
+        function eraser(){
+            let eraser = "0";
+            document.getElementById("value1").value = eraser
+            document.getElementById("value2").value = eraser
+            document.getElementById("operator").value = eraser
+            document.getElementById("result").value = eraser
+        }
+
+        let num = 1;
+
+        function check(){
+
+            let table = document.querySelector("table")
+
+            let tr = document.createElement("tr")
+
+            let Numtd = document.createElement("td")
+            Numtd.innerText = num ;
+            
+            let writertd = document.createElement("td")
+            let a = document.getElementById("name").value
+            writertd.innerText = a;
+
+            let writetd = document.createElement("td")
+            let b = document.getElementById("write").value
+            writetd.innerText = b;
+
+            let datetd = document.createElement("td")
+                let now = new Date();
+                let year = now.getFullYear();
+                let month = now.getMonth()+1;
+                let date = now.getDate();
+                let hour = now.getHours();
+                let min = now.getMinutes();
+            let c = `${year}-${month}-${date} ${hour}:${min}`
+            datetd.innerText = c ;
+
+            tr.appendChild(Numtd);
+            tr.appendChild(writertd);
+            tr.appendChild(writetd);
+            tr.appendChild(datetd);
+
+            table.appendChild(tr);
+
+            num++;
+
+    
+            
+        }
     </script>
 </body>
 </html>
