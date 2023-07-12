@@ -131,8 +131,42 @@
             console.log(f)
         }
 
+        //forEach는 함수의 매개변수로 함수를 받음 ! 가로안에 함수가 들어와야함
+        fruits1.forEach(function(data, index, arr){
+            console.log(data);
+            console.log(index);
+            console.log(arr);
+        })
 
+        fruits1.forEach((data, index, arr)=>{
+            console.log(data);
+            console.log(index);
+            console.log(arr);
+        })
 
+        let number00 =[];
+        for(let i= 1; i<=100; i++){
+            number00.push(i)
+        }
+
+        let sum0 = 0;
+        for(let i = 0; i<number00.length;i ++){
+            sum0 = sum0 + Number(number00[i])
+        }
+
+        console.log(sum0)
+        let sum2 = 0;
+        for(i of number00){
+            sum2 = sum2 + Number(i)
+        }
+
+        console.log(sum2)
+        let sum3 = 0;
+        number00.forEach(element => {
+            sum3 = sum3 + Number(element)
+        });
+        
+        console.log(sum3)
 
 
     </script>
