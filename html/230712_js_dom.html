@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+        .red {
+            background-color: red;
+        }
+        .orange {
+            background-color: orange;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="red" class="box red">
+        <span>red</span>
+        <span>box</span>
+    </div>
+
+    <div id="orange" class="box orange"></div>
+
+    <div class="box yellow"></div>
+
+    <!-- <input type="text" name="id"> -->
+
+    <button type="button" onclick="redToggle">깜빡깜빡</button>
+    <button type="button" onclick="orangeToggle">깜빡깜빡</button>
+
+    <script>
+        let redBoxByID = document.getElementById("red")
+        console.log(redBoxByID)
+        let boxes = document.getElementsByClassName("box") //class 는 여러곳에 쓰일 수 있기에 한번쓰인 class라도 배열에 담김! 
+        console.log(boxes)
+
+        let boxesByTagNmae = document.getElementsByTagName("div") 
+        console.log(boxesByTagNmae)
+
+        let input = document.getElementsByName("id")
+        console.log(input)
+        
+        let boxesBySelctor = document.querySelector(".box") // 첫번째로 마주하는 selector 를 가져옴 ! 
+        console.log(boxesBySelctor)
+
+        let boxesBySelctorAll = document.querySelectorAll(".box")
+        console.log(boxesBySelctorAll);
+
+        let orangeboxesBySelctorAll = document.querySelectorAll("#orange")
+        console.log(orangeboxesBySelctorAll);
+
+
+        document.write("hello?")
+        
+        let redBox = document.getElementById("red");
+        redBox.innerText =" <span>red</span> "
+        redBox.innerHTML =" <span>red</span> " // 코드 파싱 가능 ! 
+        console.log(redBox.innerText)// 문자만 가져옴 !
+        console.log(redBox.innerHTML)// html 자체를 가져옴 ! 
+        console.log(redBox.textContent)
+
+        console.log(redBox.className)
+        redBox.className = "box red"
+
+        console.log(redBox.classList)
+        
+    
+        function redToggle() {
+            let redBox = document.getElementById("red")
+            redBox.classList.toggle("red")}
+
+        //classlist 속성은 contain 함수 제공
+        // 괄호 안에 들온 값이 클래스에 존재하는 지검사 
+        // true false return 
+
+        //classlist 속성은 remove 함수 제공
+        // 괄호 안에 들온 값을 리스트에서 삭제
+
+        //classlist 속성은 add 함수 제공
+        // 괄호 안에 들온 값을 리스트에서 추가
+
+            function orangeToggle(){
+                let orangeBox = document.getElementById("orange")
+                orangeBox.classList.toggle("orange")
+            }
+
+
+
+
+
+
+    </script>
+</body>
+</html>
