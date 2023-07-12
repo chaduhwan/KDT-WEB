@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //만료일 = '2023-06-02'        
+
+        let now = new Date(); //2023년 7월 12일 기준
+        let expired = new Date('2023-06-07');
+        console.log(now);
+        console.log(expired);
+
+        console.log(now.getFullYear()); //2023
+
+        console.log(now.getMonth()+1); // 7 
+        //주의 getmonth는 실제 월-1를 출력함
+
+        console.log(now.getDate()); //12
+
+        console.log(now.getDay()); // 3 요일을 숫자로 반환 !
+
+        console.log(now.getTime() > expired.getDate()); // 1970년 1월 1일 00시 00분 00초 UTC를 기준으로 경과 한 밀리초를 반환
+        // 밀리초 비교 시 참이면 true 거짓이면 false
+
+        console.log(`${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`)
+
+        let year = now.getFullYear();
+        let month = now.getMonth()+1;
+        let date = now.getDate();
+
+        console.log(`${year}-${month>=10 ? month : "0"+month}-${date=10 ? date : "0"+date}`)
+
+
+        console.log(Math.PI)
+        console.log(Math.E)
+
+        console.log(Math.min(2,5,8))
+        console.log(Math.max(2,5,8))
+        console.log(Math.random())
+        console.log(Math.round(7.9),Math.round(7.2))
+        console.log(Math.floor(7.9),Math.round(7.2))
+        console.log(Math.ceil(7.9),Math.ceil(7.2))
+
+       console.log(Math.floor(Math.random() * (100-1) + 1)) // Math.random() * (최댓값 - 최솟값) - 최솟값 : 최댓값 ~ 최솟값 사이의 난수 생성
+
+
+
+
+
+    </script>
+
+
+
+    
+</body>
+</html>
