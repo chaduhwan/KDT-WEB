@@ -52,11 +52,11 @@
        
         function changecol(){
             if(num <= 5) {
-                $("#changebox").switchClass(`${rainbow[num]}`,`${rainbow[num+1]}`,1000);
+                $("#changebox").switchClass(rainbow[num],rainbow[num+1],1000);
             console.log(num)
             num++;
-            } else if (num > 5) {
-                $("#changebox").switchClass(`${rainbow[6]}`,`${rainbow[0]}`,1000);
+            } else {
+                $("#changebox").switchClass(rainbow[6],rainbow[0],1000);
                 num = 0;
             }
         }
