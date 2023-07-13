@@ -63,10 +63,10 @@
 
     <div class="backbox">
         작성자 : <input type="text" id="name" class="frame"/>
-        내용<input type="text" id="write" class="frame"/>
+        내용 : <input type="text" id="write" class="frame"/>
         <button type="button" onclick="check()" class="frame ">작성</button>
         
-        <table id="table" class="frame">
+        <table id="table" class="frame" cellspacing="3">
             <tr>
                 <td>번호</td>
                 <td>작성자</td>
@@ -216,22 +216,23 @@
 
         function check(){
 
-            let table = document.querySelector("table")
+            let table = document.querySelector("table") //테이블 지정
+        
 
-            let tr = document.createElement("tr")
+            let tr = document.createElement("tr") // tr 만들기
 
-            let Numtd = document.createElement("td")
+            let Numtd = document.createElement("td") // 번호 td 만들기
             Numtd.innerText = num ;
             
-            let writertd = document.createElement("td")
-            let a = document.getElementById("name").value
+            let writertd = document.createElement("td") // 작성자 td 만들기
+            let a = document.getElementById("name").value // 작성자 input에서 value 가져오기
             writertd.innerText = a;
 
-            let writetd = document.createElement("td")
-            let b = document.getElementById("write").value
+            let writetd = document.createElement("td") // 내용 td 만들기
+            let b = document.getElementById("write").value // 내용 input에서 value 가져오기
             writetd.innerText = b;
 
-            let datetd = document.createElement("td")
+            let datetd = document.createElement("td") // 날짜 td 만들기
                 let now = new Date();
                 let year = now.getFullYear();
                 let month = now.getMonth()+1;
@@ -241,12 +242,12 @@
             let c = `${year}-${month}-${date} ${hour}:${min}`
             datetd.innerText = c ;
 
-            tr.appendChild(Numtd);
+            tr.appendChild(Numtd); // 만들어진 tr 안에 td 순서대로 넣기
             tr.appendChild(writertd);
             tr.appendChild(writetd);
             tr.appendChild(datetd);
 
-            table.appendChild(tr);
+            table.appendChild(tr); //table에 tr 넣기
 
             num++;
 
