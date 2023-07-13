@@ -49,11 +49,11 @@
         <div class="container">
         <img />
           <div>          
-            <button onclick="apple()" value="apple">사과</button>
+            <button onclick="changebtn('사과')">사과</button>
             <button onclick="banana()" class="banana">바나나</button>
             <button onclick="grape()" class="grape">포도</button>
-            <button onclick="peach()" class="grape">복숭아</button>
-            <button onclick="changebtn()" value="복숭아">복숭아</button>
+            <button onclick="peach()" class="peach">복숭아</button>
+            <button onclick="changebtn('복숭아')" class="peach" value="복숭아">복숭아</button>
          </div>  
         </div>
     <script>
@@ -135,9 +135,8 @@
                 $("img").attr("src","../image/복숭아.jpeg")
             }
 
-            function changebtn(){
-                let fruvalue = $("button").value
-                $("img").attr("src",`../image/${fruvalue}.jpeg`)
+            function changebtn(fruits){
+                    $("img").attr("src",`../image/${fruits}.jpeg`)
             }
 
     </script>
