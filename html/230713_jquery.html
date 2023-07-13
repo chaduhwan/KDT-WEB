@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    
+    <script>
+        // $("선택자").함수()  기본 문법 ! 
+    </script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            transition: all 1s;
+        }
+        .red {
+            background-color: red;
+        }
+        .orange {
+            background-color: orange;
+        }
+
+        .container{
+            width: 300px;
+            height: 300px;
+     
+        }
+        .imgbox{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="id" id="id"/>
+    <button onclick="submitt()">바뀌어라</button>
+    <button onclick="btn2()">사라져라</button>
+
+    <div></div>
+   
+    <button onclick="fn3()">요소탐색</button>
+
+    <div class="container">
+        <div class="red"></div>
+        <div class="orange"></div>
+    </div>
+        <div class="container">
+        <img />
+          <div>          
+            <button onclick="apple()" value="apple">사과</button>
+            <button onclick="banana()" class="banana">바나나</button>
+            <button onclick="grape()" class="grape">포도</button>
+            <button onclick="peach()" class="grape">복숭아</button>
+            <button onclick="changebtn()" value="peach">복숭아</button>
+         </div>  
+        </div>
+    <script>
+
+        function submitt() {
+            // let valueJQuery = $("#id").val()
+            // let valuejs = document.getElementById("id")
+            // console.log(valueJQuery,valuejs)
+
+            // document.getElementById("id").value = "aaa"; <바닐라 js
+            $("#id").val("aaa") // jquery
+
+            // $("div").css("background-color", "blue")
+            $("div").css("border-radius","20px")
+
+            $("input").val("aaaa")
+
+            let input = document.querySelectorAll("input")
+            input.value = "aa"
+
+            //attr 함수
+            $("input").attr("placeholder","이름을 입력하시오")
+
+            //text 함수 innertext
+            $("div").text("hello")
+        
+            //html
+            $("div").html("<p>hello</p>")
+
+            //apppned 자식요소로 생성
+            $("div").append("<h1>hello</h1>")
+
+            //after와 before 앞과 뒤에 생성
+            $("div").after("<h1>hello</h1>")
+            $("div").before("<h1>hello</h1>")
+
+            //remove 요소제거
+            // $("div").remove()
+
+            //empty 선택한 요소의 자식요소 모두 제거
+            // $("div").empty()
+
+            //addclass
+            $("div").addClass("red")
+
+         
+            }
+        
+            function btn2() {
+                //removeclass
+                // $("div").removeClass("red") // 비울시 모든 class
+
+                //hasclass
+                // console.log(("div").hasClass("red")) // div에 "red" class 가 하나라도 있을 시 true 반환
+
+                //toggleClass
+                $("div").toggleClass("red")
+
+
+            }
+            
+            function fn3(){
+                // console.log($(".container").children().removeClass("red"))
+                // console.log($(".ornage").parents(body))
+                // console.log($("orange").prev());
+                // console.log($("orange").next());
+                console.log($("red").nextAll());
+
+            }
+
+            function apple(){
+                $("img").attr("src","../image/사과.jpeg")
+            }
+            function banana(){
+                $("img").attr("src","../image/바나나.jpeg")
+            } function grape(){
+                $("img").attr("src","../image/포도.jpeg")
+            } function peach(){
+                $("img").attr("src","../image/복숭아.jpeg")
+            }
+
+            function changebtn(){
+                let fruvalue = $("button").value
+                $("img").attr("src",`../image/${fruvalue}.jpeg`)
+            }
+
+    </script>
+
+
+
+
+
+
+    
+</body>
+</html>
