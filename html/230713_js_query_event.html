@@ -7,50 +7,143 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
     <style>
-
+        div{
+            display: flex;
+            flex-direction: column;
+            width: 35%;
+        }
+        td{
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 <body>
-    <input type="text" id="id">
-    <input type="text" id="pw">
-    <div class="container"> </div>
-    <button type="button">function</button>
+    <div>
+    날짜<input type="text" id="date">
+    내용<input type="text" id="content">
+    <button type="button" id="submit1">제출</button>
+    </div>
+    <!-- <button type="button">function</button> -->
+    <br/>
+
+    <table>2023년 7월
+        <tr>
+            <td style="color: red;">일</td>
+            <td>월</td>
+            <td>화</td>
+            <td>수</td>
+            <td>목</td>
+            <td>금</td>
+            <td>토</td>
+        </tr>
+        <tr>
+            <td style="color: red;"> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td style="color: red;">2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td style="color: red;">9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td style="color: red;">16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td style="color: red;">23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+        </tr>
+        <tr>
+            <td style="color: red;">30</td>
+            <td>31</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+    </table>
+
+
+
+
 
 
     <script>
-        window.addEventListener("load", function(){})
+        // window.addEventListener("load", function(){})
 
-        $(function(){ // 페이지 로드 완료 후에 실행되는 함수
-            $(".container").append(`<h1 class = "red"> hello? </h1>`)
-        })
+        // $(function(){ // 페이지 로드 완료 후에 실행되는 함수
+        //     $(".container").append(`<h1 class = "red"> hello? </h1>`)
+        // })
 
-        // $("button").on("cilck",function(){
+        // // $("button").on("cilck",function(){
+        // //     alert("click")
+        // // })
+
+        // $("button").click(function(){
         //     alert("click")
         // })
 
-        $("button").click(function(){
-            alert("click")
+        // $("button").hover(function(){ // 요소 영역에 마우스가 올라가있는 동안
+        //     alert("hover")
+        // })
+
+        // $("button").mouseover(function(){// 요소 영역에 마우스가 올라가있는 순간
+        //     alert("mouseover")
+        // })
+
+        // $(window).scroll(function(){
+        //     console.log("scrolling")
+        // })
+
+        // // $("input").keydown(function(e){
+        // //     console.log(e.currentTarget)
+        // //     console.log(this)
+        // //     console.log(e.key==="Enter")
+        // // })
+
+        let td = null;
+
+        $("td").on("click",function(){
+           $("#date").val($(this).text());
+           td = this;
         })
 
-        $("button").hover(function(){ // 요소 영역에 마우스가 올라가있는 동안
-            alert("hover")
+        $("#submit1").on("click",function(){
+            let a = $("#content").val();
+            $(td).append(a);
         })
 
-        $("button").mouseover(function(){// 요소 영역에 마우스가 올라가있는 순간
-            alert("mouseover")
-        })
-
-        $(window).scroll(function(){
-            console.log("scrolling")
-        })
-
-        $("input").keydown(function(e){
-            console.log(e.currentTarget)
-            console.log(this)
-            console.log(e.key==="Enter")
-        })
-
-        
     </script>
     
 </body>
