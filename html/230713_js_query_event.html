@@ -15,6 +15,16 @@
         td{
             width: 100px;
             height: 100px;
+            vertical-align: top;
+        }
+        tr > td:first-child  {
+            color: red;
+        }
+        tr > td:last-child  {
+            color: blue;
+        }
+        td:hover {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -29,7 +39,7 @@
 
     <table>2023년 7월
         <tr>
-            <td style="color: red;">일</td>
+            <td>일</td>
             <td>월</td>
             <td>화</td>
             <td>수</td>
@@ -38,53 +48,53 @@
             <td>토</td>
         </tr>
         <tr>
-            <td style="color: red;"> </td>
             <td> </td>
             <td> </td>
             <td> </td>
             <td> </td>
             <td> </td>
-            <td>1</td>
+            <td> </td>
+            <td><p>1</p></td>
         </tr>
         <tr>
-            <td style="color: red;">2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
+            <td><p>2</p></td>
+            <td><p>3</p></td>
+            <td><p>4</p></td>
+            <td><p>5</p></td>
+            <td><p>6</p></td>
+            <td><p>7</p></td>
+            <td><p>8</p></td>
         </tr>
         <tr>
-            <td style="color: red;">9</td>
-            <td>10</td>
-            <td>11</td>
-            <td>12</td>
-            <td>13</td>
-            <td>14</td>
-            <td>15</td>
+            <td><p>9</p></td>
+            <td><p>10</p></td>
+            <td><p>11</p></td>
+            <td><p>12</p></td>
+            <td><p>13</p></td>
+            <td><p>14</p></td>
+            <td><p>15</p></td>
         </tr>
         <tr>
-            <td style="color: red;">16</td>
-            <td>17</td>
-            <td>18</td>
-            <td>19</td>
-            <td>20</td>
-            <td>21</td>
-            <td>22</td>
+            <td><p>16</p></td>
+            <td><p>17</p></td>
+            <td><p>18</p></td>
+            <td><p>19</p></td>
+            <td><p>20</p></td>
+            <td><p>21</p></td>
+            <td><p>22</p></td>
         </tr>
         <tr>
-            <td style="color: red;">23</td>
-            <td>24</td>
-            <td>25</td>
-            <td>26</td>
-            <td>27</td>
-            <td>28</td>
-            <td>29</td>
+            <td><p>23</p></td>
+            <td><p>24</p></td>
+            <td><p>25</p></td>
+            <td><p>26</p></td>
+            <td><p>27</p></td>
+            <td><p>28</p></td>
+            <td><p>29</p></td>
         </tr>
         <tr>
-            <td style="color: red;">30</td>
-            <td>31</td>
+            <td><p>30</p></td>
+            <td><p>31</p></td>
             <td></td>
             <td></td>
             <td></td>
@@ -134,14 +144,14 @@
 
         let td = null;
 
-        $("td").on("click",function(){
+        $("td > p").on("click",function(){
            $("#date").val($(this).text());
            td = this;
         })
 
         $("#submit1").on("click",function(){
             let a = $("#content").val();
-            $(td).append(a);
+            $(td).parent().append(`<div>${a}</div>`);
         })
 
     </script>
