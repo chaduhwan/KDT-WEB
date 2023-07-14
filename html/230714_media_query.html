@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {  
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        .container{
+            display: flex;
+        }
+        /* media 유형 and (크기조건) { 
+            css 문법들
+        } */
+        /* 유형 : screen, print(인쇄할때 ! ), all */
+        /* 크기 조건 : max, min-width / max, min-height */
+        /* max-width : 숫자값의 이하일때  */
+        /* min-width : 숫자값의 이상일때  */
+
+        /* @media screen and ( max-width: 700px){ 
+          body{ background-color: green;
+        }} */
+        /* screen 이면서 700px이하일때 ! */
+        /* @media screen and ( max-width: 500px) {
+            body{ background-color: blueviolet;}
+        }
+        @media screen and ( max-width: 300px) {
+            body{ background-color: aqua;}
+        } css는 나중에 적힌게 적용되기에 max로 기준을 잡을시 위에서 부터 내림차 순으로 크기선정 !! */
+
+        /* @media screen and (min-wid:300px) {
+            body{
+                background-color: brown;
+            }
+        }
+        @media screen and (min-wid:500px) {
+            body{
+                background-color: greenyellow;
+            }
+        }
+        @media screen and (min-wid:700px) {
+            body{
+                background-color: goldenrod;
+            }
+        } */
+
+
+        /* @media print {
+            .box{
+                display: none;
+            }
+        } */
+
+        /* @media screen and (orientation: landscape) {
+         
+            body{ background-color: blue;}
+        } */
+           /* 가로모드 확인 */
+        /* @media screen and (orientation: portrait) {
+         
+            body{ background-color: tomato;}
+        } */
+           /* 세로모드 확인 */
+        
+        /* @media screen and (min-width:500px) {
+            body{ background-color: aqua;}
+        }
+        @media screen and (max-width:300px) {
+            body{ background-color: orange;}
+        }
+        @media screen and (max-height:300px) {
+            p{font-family: serif;}
+        }
+        @media screen and (min-height:300px) {
+            p{background-color: green;}
+        }
+ */
+        @media screen and (max-width:700px) {
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+            .box {
+                background-color: black;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    
+    <!-- <div class="box">hi</div> -->
+
+    <!-- <p>media prac</p> -->
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+
+</body>
+</html>
