@@ -8,21 +8,79 @@
 <body>
     <script>
         //call back hell !! 
-        setTimeout(function(){
-            document.body.style.backgroundColor = `red`
-            setTimeout(function(){
-                document.body.style.backgroundColor = `orange`
+        // setTimeout(function(){
+        //     document.body.style.backgroundColor = `red`
+        //     setTimeout(function(){
+        //         document.body.style.backgroundColor = `orange`
+        //         setTimeout(function(){
+        //             document.body.style.backgroundColor = `yellow`
+        //             setTimeout(function(){
+        //                 document.body.style.backgroundColor = `green`
+        //                 setTimeout(function(){
+        //                     document.body.style.backgroundColor = `blue`
+        //                 },1000)
+        //             },1000)
+        //         },1000)
+        //     },1000)
+        // },1000)
+
+        function work1(){
+            return new Promise ((resolve,rejcet)=>{
                 setTimeout(function(){
-                    document.body.style.backgroundColor = `yellow`
-                    setTimeout(function(){
-                        document.body.style.backgroundColor = `green`
-                        setTimeout(function(){
-                            document.body.style.backgroundColor = `blue`
-                        },1000)
-                    },1000)
+                    document.body.style.backgroundColor =`red`
+                    resolve();
                 },1000)
-            },1000)
-        },1000)
+            })
+        }
+        function work2(){
+            return new Promise ((resolve,rejcet)=>{
+                setTimeout(function(){
+                    document.body.style.backgroundColor =`orange`
+                    resolve();
+                },1000)
+            })
+        }
+        function work3(){
+            return new Promise ((resolve,rejcet)=>{
+                setTimeout(function(){
+                    document.body.style.backgroundColor =`yellow`
+                    resolve();
+                },1000)
+            })
+        }
+        function work4(){
+            return new Promise ((resolve,rejcet)=>{
+                setTimeout(function(){
+                    document.body.style.backgroundColor =`green`
+                    resolve();
+                },1000)
+            })
+        }
+        function work5(){
+            return new Promise ((resolve,rejcet)=>{
+                setTimeout(function(){
+                    document.body.style.backgroundColor =`blue`
+                    resolve();
+                },1000)
+            })
+        }
+        function work6(){
+            return new Promise ((resolve,rejcet)=>{
+                setTimeout(function(){
+                    document.body.style.backgroundColor =`navy`
+                    resolve();
+                },1000)
+            })
+        }
+        function work7(){
+            return new Promise ((resolve,rejcet)=>{
+                setTimeout(function(){
+                    document.body.style.backgroundColor =`purple`
+                    resolve();
+                },1000)
+            })
+        }
+        work1().then(work2).then(work3).then(work4).then(work5).then(work6).then(work7);
     </script>
 </body>
 </html>
