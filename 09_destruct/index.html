@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //배열 구조 분해
+        const lists = [`apple`,`grape`];
+        [item1, item2] = lists;
+        console.log(item1,item2)
+
+        //교환
+        let x =1 , y = 3
+        // [x,y] = [y,x]
+        // console.log(x,y)
+
+        //객체 구조 분행
+        const Person = {
+            //key : value
+            name : `duhwan`,
+            age : 24,
+            gender : `M`,
+            feriend : [`Alex`,`Kevin`],
+            hello : function(){
+                console.log(`hello`);
+            }, 
+            "kdt-9" : `condingOn KDT 9기`,
+            city :`donghae`
+
+        }
+        console.log(Person.name);
+        Person.age = 34;
+        console.log(Person.age)
+        console.log([Person.feriend[0]])
+        console.log(Person[`name`])
+        console.log(Person[`kdt-9`])
+        Person.city = `seoul`;
+
+        //객체 구조 분해에선 키값이 중요 !! 
+        const {name, city, gender} = Person;
+        console.log(name, city, gender);
+
+
+
+
+
+    </script>
+</body>
+</html>
