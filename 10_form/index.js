@@ -10,7 +10,6 @@ app.use(express.json());
 app.set("view engine",`ejs`);
 app.set(`views`,`./views`);
 
-
 //louter
 app.get(`/`, (req,res)=>{
     res.render(`index`,{title : `폼 전송 실습`});
@@ -32,6 +31,7 @@ app.post(`/postform`,(req,res)=>{
     })
 })
 
+//서버 오픈
 app.listen(PORT,()=>{
     console.log(`http://localhost:${PORT}`);
 })
