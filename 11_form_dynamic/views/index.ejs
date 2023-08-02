@@ -21,7 +21,7 @@
         <button type="button" onclick="ajaxGet()">ajax get 제출</button>
     </form> -->
 
-    <form name="register">
+    <!-- <form name="register">
         <label for="name">이름</label>
         <input type="text" id="name">
         <br/>
@@ -36,9 +36,8 @@
         <button type="button" onclick="axiosPost()">axios post제출</button>
         <button type="button" onclick="fetchGEt()">fetch get제출</button>
         <button type="button" onclick="fetchPost()">fetch post제출</button>
-    </form>
+    </form> -->
 
-    <div class="result"></div>
     <form name="work1">
         <label for="name">이름</label> <!--label의 for와 id를 동일하게 설정 => 이름을 눌러도 Input에 포커싱 가능-->
         <input type="text" placeholder="name" id="name" name="name">
@@ -70,6 +69,14 @@
         </fieldset>
         <button type="button" onclick="axiosGetwork()">회원가입</button>
     </form>
+
+    <form name="work2">
+        <input type="text" name="id">
+        <input type="password" name="pw">
+        <button type="button" onclick="axiosPostwork()">login</button>
+    </form>
+    <div class="result"></div>
+
 
     <script>
         const resultBox = document.querySelector(`.result`);
@@ -231,6 +238,31 @@
             })
 
         }
+
+        async function axiosPostwork(){
+            const form = document.forms[`work2`]
+            const data ={
+                id : form.id.value,
+                pw : form.pw.value,
+            }
+            console.log(data)
+            const res = await axios({
+                method : `POST`,
+                url : `axiosWork`,
+                data : data,
+            }).then((res)=>{
+                console.log(res)
+                if(res.data===true){
+                    resultBox.textContent = `로그인성공`
+                    resultBox.style.color = `blue`
+                } else {
+                    resultBox.textContent = `로그인 실패`
+                    resultBox.style.color = `red`
+                }
+            })
+
+        }
+
     </script>
 
 

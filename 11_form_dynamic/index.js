@@ -45,9 +45,23 @@ app.post(`/fetch`,(req,res)=>{
     res.send(req.body);
 })
 
+//실습
 app.get(`/axiosWork`,(req,res)=>{
     console.log(`back`,req.query);
     res.send(req.query);
+})
+
+app.post(`/axiosWork`,(req,res)=>{
+    console.log(`back`,req.body);
+    const rightid = "enghks23";
+    const rightpw = "123123";
+    if(rightid===req.body.id && rightpw === req.body.pw){
+        res.send(true)
+        console.log(true)
+    } else {
+        res.send(false)
+        console.log(false)
+    }
 })
 
 //sever start
