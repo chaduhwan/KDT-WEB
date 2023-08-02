@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    
+    <!-- <form name="register">
+        <label for="name">이름</label>
+        <input type="text" id="name">
+        <br/>
+        <input type="radio" name="gender" value="male" id="male">
+        <label for="male">남자</label>
+        <input type="radio" name="gender" value="female" id="female">
+        <label for="female">여자</label>
+        <br/>
+        <button type="button" onclick="ajaxGet()">ajax get 제출</button>
+    </form> -->
+
+    <form name="register">
+        <label for="name">이름</label>
+        <input type="text" id="name">
+        <br/>
+        <input type="radio" name="gender" value="male" id="male">
+        <label for="male">남자</label>
+        <input type="radio" name="gender" value="female" id="female">
+        <label for="female">여자</label>
+        <br/>
+        <button type="button" onclick="ajaxGet()">ajax get 제출</button>
+        <button type="button" onclick="ajaxPost()">ajax post제출</button>
+        <button type="button" onclick="axiosGet()">axios get제출</button>
+        <button type="button" onclick="axiosPost()">axios post제출</button>
+        <button type="button" onclick="fetchGEt()">fetch get제출</button>
+        <button type="button" onclick="fetchPost()">fetch post제출</button>
+    </form>
+
+    <div class="result"></div>
+    <form name="work1">
+        <label for="name">이름</label> <!--label의 for와 id를 동일하게 설정 => 이름을 눌러도 Input에 포커싱 가능-->
+        <input type="text" placeholder="name" id="name" name="name">
+        <fieldset><legend>성별</legend>
+            <input type="radio" name="gender" value="남자">남
+            <input type="radio" name="gender" value="여자">여
+        </fieldset>
+        <fieldset><legend>생년월일</legend>
+            <select name="year">
+                <% for (let i = 1990; i<=2023; i++){ %>
+                    <option value="<%=i%>" > <%=i%></option>
+               <% } %>
+            </select>년
+            <select name="month">
+               <% for (let i = 1; i<=12; i++){ %>
+                    <option value="<%=i%>" > <%=i%></option>
+                <% } %>
+            </select>월
+            <select name="day">
+                <% for (let i = 1; i<=31; i++){ %>
+                    <option value="<%=i%>" > <%=i%></option>
+                <% } %>
+            </select>일
+        </fieldset>
+        <fieldset><legend>관심사</legend>
+            <input type="checkbox" class="hobby" value="여행">여행
+            <input type="checkbox" class="hobby" value="패션">패션
+            <input type="checkbox" class="hobby" value="음식">음식
+        </fieldset>
+        <button type="button" onclick="axiosGetwork()">회원가입</button>
+    </form>
+
+    <script>
+        const resultBox = document.querySelector(`.result`);
+    
+        function ajaxGet(){
+            console.log(`ajax get`)
+            //form  선택 문법
+            const form = document.forms[`register`]
+             const data = {
+                name :form.name.value,
+                gender : form.gender.value
+            }
+            // console.log(form)
+            // console.log(form.name);
+            // console.log(form.gender)
+            // console.log(form.name.value);
+            // console.log(form.gender.value)
+
+            $.ajax({
+                type:`GET`,
+                url: `/ajax`,
+                data : data,
+                success: (res) =>{
+                    console.log(`res`,res);
+                    resultBox.textContent = `GET / ajax 요청완료 ${res.name}님은 ${res.gender}입니다`
+                    resultBox.style.color = `blue`
+                }
+            })
+        }
+
+        function ajaxPost(){
+            console.log(`ajax post`)
+            //form  선택 문법
+            const form = document.forms[`register`]
+            const data = {
+                name :form.name.value,
+                gender : form.gender.value
+            }
+            //예외처리
+            if(form.name.value === ""){
+                alert(`이름을 입력하세요!`)
+                return;
+            }
+            $.ajax({
+                type: `POST`,
+                url : `/ajax`,
+                data : data,
+                success:(res)=>{
+                    console.log(`res`,res);
+                    resultBox.textContent = `POST /ajax 요청완료 ${res.name}님의 성별은 ${res.gender}이군요`
+            }
+            })
+        }
+
+        function axiosGet(){
+            console.log(`axios get`);
+            const form = document.forms[`register`]
+            const data = {
+                name :form.name.value,
+                gender : form.gender.value
+            }
+            axios({
+                method:`GET`,
+                url : `axios`,
+                params: data,
+
+            }).then((res)=>{
+                console.log(`res`,res);
+                resultBox.textContent = `GET / axios 요청완료 ${res.data.name}님은 ${res.data.gender}입니다`
+            })
+        }
+
+        async function axiosPost(){
+            console.log(`axios post`);
+            const form = document.forms[`register`]
+            const data = {
+                name :form.name.value,
+                gender : form.gender.value
+            }
+            const res = await axios({
+                method:`POST`,
+                url :`axios`,
+                data :data,
+            });
+            const {name, gender} = res.data;
+            resultBox.textContent = `POST / axios 요청완료 ${name}님의 성별은 ${gender}입니다`
+            resultBox.style.color = `orange`
+        }
+        
+        function fetchGEt(){
+            console.log(`fetch get`);
+            const form = document.forms[`register`];
+            const url = `?name=${form.name.value}&gender=${form.gender.value}`
+            fetch(`/fetch${url}`,{
+                method :`GET`
+            }
+            ).then((res)=>{
+                console.log(`res`,res);
+                //Json 응답을 네이티브 자바스크립트 객체로 파싱해야함 ! 
+                return res.json();
+            }).then(data =>{
+                console.log(`data`,data)
+                resultBox.textContent = `GET / Fetch 요청완료 ${data.name}님은 ${data.gender}입니다.`
+                resultBox.style.color = "aqua"
+            })
+        }
+
+        function fetchPost(){
+            const form = document.forms[`register`]
+            const data = {
+                name :form.name.value,
+                gender : form.gender.value
+            };
+            console.log(`fetch post`);
+            fetch('/fetch',{
+                method: `POST`,
+                headers : {
+                    'Contents-Type' : `application/json`
+                },
+                body:JSON.stringify(data)
+                //json.stringify : 자바스크립트 객체를 json텍스트로 변환
+                //json.parse() : json형식의 텍스트를 자바스크립트 객체로 변환
+            }).then ((res) =>{
+                console.log(`res`,res)
+                return res.json()
+            }).then((data) =>{
+                console.log(`data`,data)
+                resultBox.textContent = `POST/ Fetch 요청완료 ${data.name}님은 ${data.gender}입니다.`
+                resultBox.style.color = "wheat"
+            })
+        }
+
+        function axiosGetwork(){
+            const form = document.forms[`work1`]
+            const checkedbox = document.querySelectorAll(`.hobby`);
+            let hobby = []
+            checkedbox.forEach(checkbox => {
+                    if (checkbox.checked) {
+                hobby.push(checkbox.value);
+                }
+            });
+            console.log(hobby)
+            const data = {
+                name : form.name.value,
+                gender : form.gender.value,
+                year : form.year.value,
+                month : form.month.value,
+                day : form.day.value,
+                hobby : hobby
+            }
+            axios({
+                method : `GET`,
+                url : `axiosWork`,
+                params : data,
+            }).then((res)=>{
+                console.log(`res`,res);
+                resultBox.textContent = `GET / axios work 요청완료  
+                나이 : ${res.data.name} 성별 :${res.data.gender} 생년월일 : ${res.data.year}년 ${res.data.month}월 ${res.data.day}일 취미 : ${res.data.hobby}`
+            })
+
+        }
+    </script>
+
+
+
+</body>
+</html>
