@@ -2,6 +2,7 @@ const express = require(`express`);
 const app = express();
 const path = require(`path`);
 const multer = require(`multer`);
+const { render } = require("ejs");
 const PORT = 8000;
 
 //view engine
@@ -36,10 +37,25 @@ const uploadDetail = multer({
     limits:{fieldSize:5*1024*1024},
 })
 
+const uploadwork = multer({
+    storage:multer.diskStorage({
+        destination(req,file,done){
+            done(null,'upload/')
+        },
+        filename(req,file,done){
+            const ext = path.extname(file.originalname)
+            console.log('ext',ext);
+            const newfilename = `${req.body.id}`
+            done(null,path.basename(newfilename)+ext)
+        }
+    }),
+    limits:{fieldSize:5*1024*1024},
+})
 //router
 app.get(`/`,(req,res)=>{
     res.render(`index`)
 });
+
 app.post(`/upload`,uploadDetail.single(`userfile`),(req,res)=>{
     console.log(req.file)
     console.log(req.body)
@@ -58,6 +74,15 @@ app.post(`/upload/fields`,uploadDetail.fields([{name:`userfile1`},{name:`userfil
 app.post(`/dynamicFile`,uploadDetail.single(`dynamic-file`),(req,res)=>{
     console.log(req.body)
     res.send(req.file);
+})
+
+//파일 업로드 실습
+app.post(`/uploadwork`,uploadwork.single(`workfile`),(req,res)=>{
+    console.log(req.body)
+    console.log(req.file)
+    res.render(`result`,{
+    userphoto: req.file
+    })
 })
 
 //sever open

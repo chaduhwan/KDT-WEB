@@ -61,5 +61,24 @@
         }
     </script>
 
+    <form action="/uploadwork" method="post" enctype="multipart/form-data">
+        <label for="id">아이디</label>
+        <input type="text" name="id"><br/>
+
+        <label for="pw">비밀번호</label>
+        <input type="password" name="pw"><br/>
+
+        <label for="name">이름</label>
+        <input type="text" name="name"><br/>
+
+        <label for="age">나이</label>
+        <input type="text" name="age"><br/>
+        
+        <label for="workfile">프로필사진</label>
+        <input type="file" name="workfile"><br/>
+
+        <button type="submit">회원가입</button>
+    </form>
+
 </body>
 </html>
