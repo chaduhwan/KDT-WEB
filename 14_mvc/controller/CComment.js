@@ -24,13 +24,11 @@ exports.Work = (req,res)=>{
 
 exports.axiosWork = (req,res)=>{
     console.log(`back`,req.body);
-    const rightid = "enghks23";
-    const rightpw = "123123";
-    if(rightid===req.body.id && rightpw === req.body.pw){
+    if(comment.user().rightid===req.body.id && comment.user().rightpw === req.body.pw){
         res.send(true)
         console.log(true)
     } else {
         res.send(false)
         console.log(false)
     }
-}
+}   

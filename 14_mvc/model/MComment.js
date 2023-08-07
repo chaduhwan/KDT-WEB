@@ -21,3 +21,8 @@ exports.comments =()=> {
     date : `2023-08-05`,
     comment : '안녕하세요'
 }]};
+
+exports.user =()=>{
+    return {rightid : "enghks23",
+    rightpw : "123123"}
+}
