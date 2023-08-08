@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <form name="profile">
+        <fieldset>
+            <legend>프로필</legend>
+            <label for="id">id</label>
+            <input type="text" name="id" value="<%=data.userid%>">
+            <label for="name">name</label>
+            <input type="text" name="name" value="<%=data.name%>">
+            <label for="pw">pw</label>
+            <input type="text" name="pw" value="<%=data.pw%>">
+            <button type="button">수정</button>
+            <button type="button">삭제</button>
+        </fieldset>
+    </form>
+</body>
+</html>

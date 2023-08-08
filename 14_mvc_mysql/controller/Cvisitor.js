@@ -11,7 +11,7 @@ exports.getVisitors= (req,res)=>{
 }
 
 exports.getVisitor =(req,res)=>{
-  Visitor.getvisitor(req.body.id,(result)=>{
+  Visitor.getvisitor(req.query.id,(result)=>{
     res.render(`visitor`,{data : result});
   })
 }
