@@ -66,15 +66,14 @@ app.post(`/login`,(req,res)=>{
 })
 
 //프로필
-app.get(`/profile`,(req,res)=>{
-    res.render('profile')
-})
-
 app.post(`/profile`,(req,res)=>{
-    const profile = req.body
-    console.log(profile[0])
-    res.render(`profile`, {
-         data: profile[0] });
+    const query = `select * from user1 where userid='${req.body[0].userid}'`
+    conn.query(query,(err,rows)=>{
+        console.log(rows[0])
+        const datas = rows[0]
+        res.render('profile',{data : datas})
+    })
+    
 })
 
 app.use(`*`,(req,res)=>{
