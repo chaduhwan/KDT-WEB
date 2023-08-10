@@ -1,5 +1,6 @@
 // const User = require('../model/User');
 const models = require('../models')
+const [Op] =require('sequelize')
 
 // import * as User from '../model/User.js'
 
@@ -86,3 +87,18 @@ export const delete_profile = async (req, res) => {
         
     }
 };
+
+export const findall =(req,res) =>{
+    models.findAll({
+        //attributes : 원하는 컬럼만 조회
+        attributes :['name','userid'],
+        //Op.gt(초과),Op.gte(이상),Op.lt(미만)),Op.ne(같지않은
+        //Op.or(또는),Op.in(배열의 요소중 하나),Op.notin(배열에 요소와 모두 다름),
+        where : {id :{[Op.gte]:2}},
+        order: ['id','DESC'],
+        limit :1,
+        offset:1
+    }).then((result)=>{
+        console.log(result)
+    })
+}

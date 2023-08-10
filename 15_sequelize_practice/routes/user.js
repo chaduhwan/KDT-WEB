@@ -17,4 +17,6 @@ router.post('/profile', controller.post_profile);
 router.patch('/profile/edit', controller.edit_profile);
 router.delete('/profile/delete', controller.delete_profile);
 
+router.get('/findall',controller.findall)
+
 export default router;
