@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <a href="/setCookie">쿠키 설정하기</a>
+    <a href="/getCookie">쿠키 확인하기</a>
+    <a href="/clearCookie"> 쿠키 없애기</a>
+
+    <div class="modal" tabindex="-1" role="dialog" id="popup_modal">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              테스트 모달 입니다.
+            </div>
+            <div class="modal-footer">
+            <form action="/cookiework" name="cookie">
+                <input type="checkbox" id="checkbox" name = "check">
+            </form>
+              <button type="button" data-dismiss="modal"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <script>
+        // 처음에 modal 열어두기
+        $(document).ready(function(){
+          $("#popup_modal").modal('show');
+        })
+
+        const checkbox = document.getElementById('checkbox')
+
+       
+
+        function cookiework() {
+            const cookie = document.forms['cookie']
+            const data = {
+                check : cookie.check
+            }
+            axios ({
+                metod :'GET',
+                url : '/cookiework',
+                params : data
+            }).then(res=>{
+                console.log("cookie 생성완료")
+            })
+        }
+        checkbox.addEventListener('click',cookiework())
+      </script>
+</body>
+</html>
