@@ -43,6 +43,7 @@ app.post('/login',(req,res)=>{
         res.send(`<script>alert('로그인실패');document.location.href='/';</script>`)
     }
 })
+
 app.get('/logout',(req,res)=>{
     const user=req.session.user;
     if(user===undefined){
