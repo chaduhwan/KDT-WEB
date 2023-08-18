@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = 8000;
+require("dotenv").config();
 
 let hash = '';
 
@@ -13,6 +14,8 @@ app.use(express.json());
 
 //router
 app.get('/', (req, res) => {
+    console.log(process.env.NAME)
+    console.log(process.env.NODE_ENV)
     res.render('index');
 });
 
