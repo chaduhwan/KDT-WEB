@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+       <form onsubmit="fileupload(event)">
+        <input type="file" id="file" name="files" multiple>
+        <input type="text" id="title">
+        <button type="submit">upload</button>
+    </form>
+    <div class="result"></div>
+    </body>
+    <script>
+        const resultBox = document.querySelector('.result')
+        async function fileupload() {
+            event.preventDefault();
+            const title = document.querySelector('#title').value;
+            const files = document.querySelector('#file')
+
+            const formdata = new FormData();
+            formdata.append('title',title);
+            for (let i=0 ; i <files.files.length; i++ ){
+                formdata.append('files',files.files[i])
+            }
+            const res = await axios ({
+                method : 'POST',
+                url : '/work',
+                data : formdata,
+                headers : {
+                        'Content-Type' : `multipart/form-data`
+                },
+            })
+            for(let i=0;i<res.data.length;i++ ){
+                resultBox.innerHTML+=`<img src=${res.data[i].path}>`
+            }
+     
+        }
+    </script>
+</html>
