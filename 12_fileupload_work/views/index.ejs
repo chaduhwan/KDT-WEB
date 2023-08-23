@@ -26,16 +26,21 @@
             for (let i=0 ; i <files.files.length; i++ ){
                 formdata.append('files',files.files[i])
             }
-            const res = await axios ({
-                method : 'POST',
-                url : '/work',
-                data : formdata,
-                headers : {
-                        'Content-Type' : `multipart/form-data`
-                },
-            })
-            for(let i=0;i<res.data.length;i++ ){
-                resultBox.innerHTML+=`<img src=${res.data[i].path}>`
+            try {
+                const res = await axios ({
+                    method : 'POST',
+                    url : '/work',
+                    data : formdata,
+                    headers : {
+                            'Content-Type' : `multipart/form-data`
+                    },
+                })
+                for(let i=0;i<res.data.length;i++ ){
+                    resultBox.innerHTML+=`<img src=${res.data[i].path}>`
+                }
+                
+            } catch (error) {
+                console.log(error)
             }
      
         }

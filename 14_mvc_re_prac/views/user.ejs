@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>유저목록</h1>
+    <form name="form-plus">
+        <legend>회원추가</legend>
+        <label for="name">이름</label>
+        <input type="text" placeholder="이름" name="name">
+        <label for="gender">성별</label>
+        <input type="text" placeholder="성별" name="gender">
+        <label for="major">전공</label>
+        <input type="text" placeholder="전공" name="major">
+        <button type="button" onclick="plus()">회원추가</button>
+    </form>
+    <ul>
+       <% for(let i = 0 ; i < users.length ; i++){ %>
+            <li>
+               <b>아이디: <%=users[i].id%></b>
+               <b>이름 : <%=users[i].name%></b>
+               <b>성별 : <%=users[i].gender%></b>
+               <b>전공 : <%=users[i].major%></b>
+            </li>
+       <% } %>
+    </ul>
+    <script>
+        
+        async function plus(){
+            const form = document.forms['form-plus']
+            const userData = {
+                name : form.name.value,
+                gender : form.gender.value,
+                major : form.major.value
+            }
+            await axios({
+                method :'POST',
+                url :'/plus',
+                data : userData
+            })
+            document.location.reload();
+        }
+    </script>
+</body>
+</html>
