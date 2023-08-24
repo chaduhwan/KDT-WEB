@@ -85,7 +85,7 @@ const db_signin = (data,cb) =>{
 
 //회원정보 조회
 const db_profile = (data,cb) => {
-    const query = 'SELECT * FROM user WHERE userid = ? '
+    const query = 'SELECT * FROM user WHERE id = ? '
     conn.query(query, [data.nummber],(err,rows)=>{
         if(err) {
             console.log(err)
