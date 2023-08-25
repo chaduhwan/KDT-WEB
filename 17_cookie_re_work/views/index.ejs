@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>MVC</h1>
+        <a href="/signin">로그인페이지</a>
+        <a href="/signup">회원가입페이지</a>
+    </body>
+    <script>
+        if('<%=result%>'=='false'){ // ejs에서는 문자열로밖에 못받는다 !! 원래 값으로 사용하고 싶으면 형변환해야함 ! 
+            alert('로그인이 필요합니다')
+            console.log('<%=result%>')
+        } else{
+            console.log('<%=result%>')
+        }
+    </script>
+</html>
