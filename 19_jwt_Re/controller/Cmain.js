@@ -2,6 +2,8 @@
 //models/index에서 index는 생략
 const { User } = require('../models');
 const bcrypt = require('bcrypt');
+const jwt =require('jsonwebtoken')
+const SECRET ="asd123"
 
 //쿠키 설정
 const cookieConfig = {
@@ -34,11 +36,11 @@ const signup = (req, res) => {
 //로그인페이지
 const signin = (req, res) => {
     console.log(req.session.userInfo, req.sessionID);
-    if (req.session.userInfo) {
-        res.redirect(`/profile/${req.session.userInfo.id}`);
-    } else {
+    // if (req.session.userInfo) {
+    //     res.redirect(`/profile/${req.session.userInfo.id}`);
+    // } else {
         res.render('signin');
-    }
+    // }
 };
 //회원정보 조회 페이지
 const profile = (req, res) => {
@@ -56,6 +58,7 @@ const profile = (req, res) => {
     });
 };
 const buy = (req, res) => {};
+
 //전체회원조회
 const members = (req, res) => {
     if (req.session.userInfo) {
@@ -104,9 +107,13 @@ const post_signin = async (req, res) => {
         console.log('result', result);
         if (result) {
             //세션 생성
-            req.session.userInfo = { name: user.name, id: user.id };
+            // req.session.userInfo = { name: user.name, id: user.id };
+
+            //jwt 생성
+            const token =jwt.sign({name : user.name, id : user.name},SECRET);
+            res.cookie('atoken',token)
             res.cookie('isLogin', true);
-            res.json({ result: true, data: user });
+            res.json({ result: true, data: user,token });
         } else {
             res.json({ result: false, message: '비밀번호가 틀렸습니다.' });
         }
@@ -117,15 +124,36 @@ const post_signin = async (req, res) => {
 };
 /////////////////////////////////////////
 //PATCH
-const edit_profile = (req, res) => {
+const edit_profile = async (req, res) => {
     // model.db_profile_edit(req.body, () => {
     //     res.json({ result: true });
     // });
+    
     //update ( 수정될 정보를 객체형태로 입력, 수정될 곳 객체 입력 )
     const { name, pw, id } = req.body;
-    User.update({ name, pw }, { where: { id } }).then(() => {
-        res.json({ result: true });
-    });
+ 
+    //headers의 요청은 req.headers안에 있음
+    // console.log(req.headers)
+    //split 함수는 함수안의 문자를 기준으로 문자열을 잘라내기 한 후 배열을 반환
+    const [bearer, token] = req.headers.authorization.split(' ');
+    if(bearer === "bearer") {
+        try {
+            const result =jwt.verify(token,SECRET)
+            console.log(result)
+            // const returnValue= await User.findOne({where:{id:result.id}})
+            const hash = await bcryptPassword(pw);
+            User.update({ name, pw : hash}, { where: { id } }).then(() => {
+                res.json({ result: true });
+            });
+
+        } catch (error) {
+            console.log(error)
+            res.json({result:false, message :"잘못된 인증 값입니다!"})
+            
+        }
+    } else {
+        res.json({result:false, message :"잘못된 인증 값입니다!"})
+    }
 };
 
 /////////////////////////////////////
@@ -140,8 +168,8 @@ const destroy = (req, res) => {
         //res.clearCookie(쿠키이름)
         res.clearCookie('isLogin');
         //세션삭제
-        req.session.destroy();
-        res.json({ result: true });
+        // req.session.destroy();
+        // res.json({ result: true });
     });
 };
 
