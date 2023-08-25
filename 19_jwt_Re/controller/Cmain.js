@@ -111,9 +111,9 @@ const post_signin = async (req, res) => {
 
             //jwt 생성
             const token =jwt.sign({name : user.name, id : user.name},SECRET);
-            res.cookie('atoken',token)
+            // res.cookie('atoken',token)
             res.cookie('isLogin', true);
-            res.json({ result: true, data: user,token });
+            res.json({ result: true, data: user, token });
         } else {
             res.json({ result: false, message: '비밀번호가 틀렸습니다.' });
         }
@@ -131,12 +131,12 @@ const edit_profile = async (req, res) => {
     
     //update ( 수정될 정보를 객체형태로 입력, 수정될 곳 객체 입력 )
     const { name, pw, id } = req.body;
+    const [Bearer, token] = req.headers.authorization.split(' ');
  
     //headers의 요청은 req.headers안에 있음
     // console.log(req.headers)
     //split 함수는 함수안의 문자를 기준으로 문자열을 잘라내기 한 후 배열을 반환
-    const [bearer, token] = req.headers.authorization.split(' ');
-    if(bearer === "bearer") {
+    if(Bearer=== "Bearer") {
         try {
             const result =jwt.verify(token,SECRET)
             console.log(result)
