@@ -8,6 +8,7 @@
 <body>
     <ul></ul>
     <form id="chat">
+        <input type="text" id="nickname" placeholder="닉네임"> 
         <input type="text" id="message" placeholder="채팅내용"> <br/>
         <button>채팅</button>
     </form>
@@ -24,7 +25,7 @@
         socket.addEventListener('open',(event)=>{
 
             //send 함수는 백엔드로 메세지를 전송
-            socket.send("hello server")
+            socket.send(JSON.stringify({nickname : "server", msg : "hello server"}))
             console.log('서버에 연결되었습니다.')
             
             //메세지 주고 받음
@@ -51,13 +52,13 @@
         // 폼 이벤트
         chatForm.addEventListener('submit',(event)=>{
             event.preventDefault(); // submit 존재시 항상 써야함 ! 
-            const message = chatForm.querySelector('#message')
-            socket.send(message.value)
-            message.value = '';
+            const msg = chatForm.querySelector('#message')
+            const nickname =chatForm.querySelector('#nickname')
+
+            // 서버가 node.js가 아니기 때문에 서버로 보내는 데이터는 문자열 형태로 보내야함 !!
+            socket.send(JSON.stringify({nickname : nickname.value,msg : nickname.value}))
+            msg.value = '';
         })
-
-
-
     </script>
 </body>
 </html>
