@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>투표 하기</h1>
+        <div>
+            <button id="typeOne">A타입</button>
+            <button id="typeTwo">B타입</button>
+        </div>
+        <div>
+            <h3>투표 결과</h3>
+            <p>A타입: <span id="resultOne">0</span></p>
+            <p>B타입: <span id="resultTwo">0</span></p>
+        </div>
+
+        <script>
+            const socket = new WebSocket('ws://localhost:8000');
+
+            //서버에 연결 요청
+            socket.addEventListener('open', (event) => {
+                //send() 함수는 백엔드로 메세지를 전송
+                console.log('서버에 연결되었습니다');
+            });
+            //메세지 주고 받음
+            socket.addEventListener('message', (event) => {
+                console.log(JSON.parse(event.data))
+                const {type, vote} = JSON.parse(event.data)
+                if(type == 'A') {
+                    resultOne.textContent = vote;
+                } 
+                if(type == 'B') {
+                    resultTwo.textContent = vote;
+                } 
+            });
+            //오류이벤트
+            socket.addEventListener('error', (event) => {
+                console.log('오류가 발생하였습니다', event.error);
+            });
+
+            //종료이벤트
+            socket.addEventListener('close', () => {
+                console.log('서버와 연결이 종료됨');
+            });
+
+            // 버튼 이벤트
+            const buttonA = document.querySelector('#typeOne');
+            buttonA.addEventListener('click',(event)=>{
+                const resultOne = document.querySelector('#resultOne')
+                const vote1 = Number(resultOne.textContent) +1
+                socket.send(JSON.stringify({type :"A", vote : vote1}))  
+            })
+
+            const buttonB = document.querySelector('#typeTwo');
+            buttonB.addEventListener('click',(event)=>{
+                const resultTwo = document.querySelector('#resultTwo')
+                const vote2 = Number(resultTwo.textContent) +1  
+                socket.send(JSON.stringify({type : "B", vote : vote2})) 
+            })
+        </script>
+    </body>
+</html>
