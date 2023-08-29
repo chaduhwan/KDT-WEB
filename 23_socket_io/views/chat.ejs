@@ -7,7 +7,7 @@
     <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-    <ul></ul>
+    <ul style="background-color: skyblue; width: 50vh; height: 30vh; list-style-type: none;"></ul>
     <form id="chat">
         <input type="text" id="message" placeholder="채팅내용">
         <button>채팅</button>
@@ -35,9 +35,24 @@
             console.log(res)
             const li = document.createElement('li')
             li.textContent = res;
+            li.style.display = 'inline-block'
+            li.style.marginLeft = '90%'
+            li.style.textAlign = 'right'
+            li.style.backgroundColor = 'yellow'
             ul.appendChild(li)
         })
-        
+
+        socket.on('other_chat',(res)=>{
+            console.log(res)
+            const li = document.createElement('li')
+            li.textContent = res;
+            li.style.display = 'inline-block'
+            li.style.marginRight = '90%'
+            li.style.textAlign = 'left'
+            li.style.backgroundColor = 'white'
+            ul.appendChild(li)
+        })
+
         //폼 이벤트
         chatForm.addEventListener("submit",(e)=>{
             e.preventDefault();

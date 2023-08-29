@@ -35,7 +35,7 @@ io.on('connection',(socket)=>{
 
     
     console.log('조인 전',socket.rooms)
-    
+
     socket.on("join",(res)=>{
         //채팅방을 생성하는 방법은 join(방아이디) 사용, 방이 존재하면 그방으로 접속 ! 
         socket.join(res);
@@ -52,7 +52,9 @@ io.on('connection',(socket)=>{
 
     socket.on('message',(res)=>{
         //io.to(특정방).emit(이벤트) 특정방의 전체 사용자에게 메세지 전달
-        io.to(socket.room).emit('chat',res);
+        // io.to(socket.room).emit('chat',res);
+        socket.emit('chat',res);
+        socket.broadcast.to(socket.room).emit('other_chat',res)
     })
 
     socket.on('leave',()=>{
