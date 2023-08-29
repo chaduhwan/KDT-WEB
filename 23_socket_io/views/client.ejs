@@ -16,6 +16,11 @@
         <button>채팅</button>
     </form>
 
+        <button id="hello">hello</button>
+        <button id="study">stduy</button>
+        <button id="bye">bye</button>
+        <div></div>
+
     <script>
         const socket = io();
 
@@ -41,6 +46,25 @@
             const li = document.createElement('li');
             li.textContent = `${arg.name}:${arg.message}`
             ul.appendChild(li)
+        })
+
+        //실습 
+        const hello = document.querySelector('#hello')
+        const study = document.querySelector('#study')
+        const bye = document.querySelector('#bye')
+        
+        hello.addEventListener('click',(event)=>{
+            socket.emit('button',{type :'hello', text :'안녕하세요'})
+        })
+        study.addEventListener('click',(event)=>{
+            socket.emit('button',{type :'study', text :'공부하세요'})
+        })
+        bye.addEventListener('click',(event)=>{
+            socket.emit('button',{type :'bye', text :'안녕히계세요'})
+        })
+        socket.on("backend_button",(arg)=>{
+            const div = document.querySelector('div')
+            div.textContent = `${arg.type}:${arg.text}`
         })
         </script>
 </body>
