@@ -83,6 +83,7 @@
                 <select id="userList" style="width: 20%;"></select>
                 <input type="text" id="message" placeholder="메세지 입력" />
                 <button style="width: 20%;">입력</button>
+                <button onclick="leave()"></button>
             </form>
         </div>
 
@@ -179,6 +180,13 @@
                 
                 message.value = "";
             });
+
+            function leave() {
+            console.log('leave')
+            socket.emit('leave')
+            main.hidden = false;
+            body.hidden = true;
+        }
         </script>
     </body>
 </html>
