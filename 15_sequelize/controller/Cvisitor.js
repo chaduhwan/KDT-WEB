@@ -13,7 +13,6 @@ exports.getVisitors= (req,res)=>{
   models.Visitor.findAll().then(result=>{
       console.log('findall',result)
       res.render(`visitor`,{data : result});
-      res.send({data : result})
   })
 }
 
