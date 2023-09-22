@@ -67,9 +67,9 @@ class Board extends Component {
                     <button type="submit">작성</button>
                 </form>
 
-                <select name='searchOption' value={this.state.searchOption}  onChange={this.handleInputChange}>
-                    <option value={"title"}>제목</option>
-                    <option value={"search"}>작성자</option>
+                <select name='searchOption' value={this.state.searchOption} onChange={this.handleInputChange}>
+                    <option value="title">제목</option>
+                    <option value="search">작성자</option>
                 </select>
 
                 <input 

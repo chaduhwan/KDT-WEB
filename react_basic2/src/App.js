@@ -1,10 +1,15 @@
-import CounterFunc from "./CounterFun";
+import LifeCycleClass from "./LifeCycleClass";
+
+
+
+
+
 
 
 function App() {
   return (
     <>
-    <CounterFunc></CounterFunc>
+     <LifeCycleClass></LifeCycleClass>
     </>
   );
 }
