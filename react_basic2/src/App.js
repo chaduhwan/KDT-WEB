@@ -1,4 +1,5 @@
-import LifeCycleClass from "./LifeCycleClass";
+import UserInfo from "./UserInfo";
+import { useState, useEffect } from "react";
 
 
 
@@ -7,9 +8,16 @@ import LifeCycleClass from "./LifeCycleClass";
 
 
 function App() {
+  const [status, setStatus] = useState(true)
+
+  const removeComp =() => {
+    setStatus(!status)
+
+}
   return (
     <>
-     <LifeCycleClass></LifeCycleClass>
+     <button onClick={removeComp}> 연결해제</button>
+      {status && <UserInfo/>}
     </>
   );
 }
