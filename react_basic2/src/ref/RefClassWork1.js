@@ -21,6 +21,7 @@ class Board extends Component {
     // 작성 버튼을 클릭했을 때 실행되는 함수를 추가합니다.
     handleBoardSubmit = (e) => {
         e.preventDefault();
+         ///// Ref 연습문제 코드 추가
         console.log(this.title)
         if(this.title.value === "") {
             this.title.focus();
