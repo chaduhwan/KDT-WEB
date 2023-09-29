@@ -1,0 +1,27 @@
+@import './_utils.scss';
+
+.con {
+    position: relative;
+}
+
+
+.ball {
+    &.b1{
+        @include ball(yellow);
+        @include movingBall(yellowAni,100px);
+        animation-name: yellowAni;
+    }
+
+    &.b2 {
+        @include ball(hotpink);
+        @include movingBall(hotpinkAni,200px);
+        animation-name: hotpinkAni;
+
+    }
+
+    &.b3 {
+        @include ball(aqua);
+        @include movingBall(aquaAni,200px);
+        animation-name: aquaAni
+    }
+}
