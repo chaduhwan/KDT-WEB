@@ -1,15 +1,15 @@
-import { BrowserRouter, Routes, Route, createBrowserRouter } from "react-router-dom";
+// import { BrowserRouter, Routes, Route, createBrowserRouter } from "react-router-dom";
 
-import Header from "./Header";
-import About from "./About";
-import Home from "./Home";
-import User from "./User";
-import Redirect from "./Redirect";
-import UserDetail from "./UserDetail";
-import NotFound from "./NotFound";
-import App from "../App";
-import Error from "./Error";
-import Commnet from "./Comment";
+// import Header from "./Header";
+// import About from "./About";
+// import Home from "./Home";
+// import User from "./User";
+// import Redirect from "./Redirect";
+// import UserDetail from "./UserDetail";
+// import NotFound from "./NotFound";
+// import App from "../App";
+// import Error from "./Error";
+// import Commnet from "./Comment";
 
 
 ///////첫번째 방법

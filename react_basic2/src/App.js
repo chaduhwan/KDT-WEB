@@ -1,17 +1,19 @@
-// import { Outlet } from "react-router-dom";
-// import Header from "./12Router/Header";
-import RouterPra from "./12Router/RouterPra";
-// import Router from "./12Router/Router";
+import ProductList from "./14Context/store/ProductList";
+import CartItem, { CartItemProvider } from "./14Context/store/CartItem";
+import Cart from "./14Context/store/Cart";
 
 
 
 function App() {
   
   return (
-    
-    <RouterPra/>
-    
-  );
+   <>
+   <CartItemProvider>
+     <ProductList/> 
+     <Cart/>
+   </CartItemProvider>
+   </>
+  )
 
 }
 
